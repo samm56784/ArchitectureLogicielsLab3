@@ -1,0 +1,11 @@
+﻿  fonctions.cpp
+C:\Users\sharvey27\Desktop\Lab2\ArchitectureLogicielsLab2\labo2\fonctions.cpp(9,10): warning C4101: 'evCode' : variable locale non référencée
+  labo2.cpp
+  Lecture.cpp
+     Création de la bibliothèque C:\Users\sharvey27\Desktop\Lab2\ArchitectureLogicielsLab2\x64\Release\labo2.lib et de l'objet C:\Users\sharvey27\Desktop\Lab2\ArchitectureLogicielsLab2\x64\Release\labo2.exp
+  Génération de code en cours
+  Previous IPDB not found, fall back to full compilation.
+C:\Users\sharvey27\Desktop\Lab2\ArchitectureLogicielsLab2\labo2\Lecture.cpp(50): warning C4715: 'Lecture::start' : les chemins de contrôle ne retournent pas tous une valeur
+  All 159 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Fin de la génération du code
+  labo2.vcxproj -> C:\Users\sharvey27\Desktop\Lab2\ArchitectureLogicielsLab2\x64\Release\labo2.pyd
