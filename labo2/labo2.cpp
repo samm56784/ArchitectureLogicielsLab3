@@ -10,7 +10,7 @@
 //Le fichier main.cpp avait été modifié lors du premier laboratoire de ce cours et a été réutilisé dans le cadre de ce second laboratoire. Celui-ci a été modifié afin que le code puisse être 
 //exécuté dans un module python avec en entrée le path de la vidéo à jouer.
 #include "fonctions.h"
-
+Lecture Lec;
 static PyObject* start(PyObject* self, PyObject* args)
 {
     const char* buffer;
@@ -19,20 +19,21 @@ static PyObject* start(PyObject* self, PyObject* args)
     wstring temp(buffpath.begin(), buffpath.end());
     wstring autre = temp;
     LPCWSTR path = autre.c_str();;
-    Lecture Lec;
+    
     PyObject* valeur;
     valeur = Lec.start(self,args);
     Lec.hr = Lec.pGraph->RenderFile(path, NULL);
+
     if (SUCCEEDED(Lec.hr))
     {
         // Run the graph.
-        Lec.hr = Lec.pControl->Run();
+        Lec.play();
         if (SUCCEEDED(Lec.hr))
         {
             Lec.setEndTime();
             //cas video marche et est en cours de lecture
-            ToucheEntrée(Lec);//passer en entrée hr 
-            cout << "Methode bien fermee!" << endl;
+           // ToucheEntrée(Lec);//passer en entrée hr 
+            //cout << "Methode bien fermee!" << endl;
             Lec.Message = "Methode bien fermee!";
             const char* buf = Lec.Message.c_str();
             valeur = PyBytes_FromString(buf);
@@ -42,6 +43,7 @@ static PyObject* start(PyObject* self, PyObject* args)
         Lec.Message = "Probleme de lecture...";
         const char* buf2 = Lec.Message.c_str();
         valeur = PyBytes_FromString(buf2);
+        Lec.~Lecture();
         return valeur;
     }
     else
@@ -55,11 +57,37 @@ static PyObject* start(PyObject* self, PyObject* args)
     }
 }
 
+static PyObject* play(PyObject* self, PyObject* args)
+{
+    Lec.play();
+    return NULL;
+}
 
+static PyObject* pause(PyObject* self, PyObject* args)
+{
+    Lec.pause();
+    return NULL;
+}
+
+static PyObject* fastforward(PyObject* self, PyObject* args)
+{
+    Lec.fastforward();
+    return NULL;
+}
+
+static PyObject* rewind(PyObject* self, PyObject* args)
+{
+    Lec.rewind();
+    return NULL;
+}
 
 static PyMethodDef methods[] = {
 
     {"start",start,METH_VARARGS,"start"},
+    {"play",play,METH_NOARGS,"play"},
+    {"pause",pause,METH_NOARGS,"pause"},
+    {"fastforward",fastforward,METH_NOARGS,"fastforward"},
+    {"rewind",rewind,METH_NOARGS,"rewind"},
     { NULL, NULL, 0, NULL }
 };
 

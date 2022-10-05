@@ -21,17 +21,28 @@ def openFile():
    labo2.start(the_file)
    # opening a file using the startfile() method of the os module  
    #os.startfile(os.path.abspath(the_file))  
+def play():
+    labo2.play()
+
+def pause():
+    labo2.pause()
+
+
+def fastforward():
+    labo2.fastforward()
+
+def rewind():
+    labo2.rewind()
 
 root = Tk()
 frm = ttk.Frame(root, padding = 10)
 frm.grid()
-
 root.title('Labo3')
 ttk.Button(frm, text="Ouvrir un fichier",command=openFile).grid(column=1,row=0)
-ttk.Button(frm, text="Play").grid(column=2,row=0)
-ttk.Button(frm, text="Pause").grid(column=3,row=0)
-ttk.Button(frm, text="Avance rapide (1,25x)").grid(column=4,row=0)
-ttk.Button(frm, text="Retour au debut").grid(column=5,row=0)
+ttk.Button(frm, text="Play",command=play).grid(column=2,row=0)
+ttk.Button(frm, text="Pause",command=pause).grid(column=3,row=0)
+ttk.Button(frm, text="Avance rapide (1,25x)",command=fastforward).grid(column=4,row=0)
+ttk.Button(frm, text="Retour au debut",command=rewind).grid(column=5,row=0)
 ttk.Button(frm, text="Quit",command=root.destroy).grid(column=6,row=0)
 
 root.mainloop() 

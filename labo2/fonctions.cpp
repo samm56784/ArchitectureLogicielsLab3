@@ -8,9 +8,9 @@ void ToucheEntrée(Lecture &Lec)
     //FILTER_STATE state;
     long evCode;
     Lec.hr = Lec.pSeeking->GetPositions(NULL, &rtEnd);
-    while (lettre!='Q')
+   /* while (lettre != 'Q')
     {
-        lettre = _getch();
+        //lettre = _getch();
         lettre = toupper(lettre);
         switch (lettre)
         {
@@ -40,6 +40,6 @@ void ToucheEntrée(Lecture &Lec)
             break;
         }
 
-    }
+    }*/
 
 }

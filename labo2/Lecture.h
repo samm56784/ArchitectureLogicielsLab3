@@ -8,7 +8,7 @@
 using namespace std;
 enum state
 {
-	INITIAL,PLAYING, PAUSED, STOPPED
+	INITIAL,PLAYING, PAUSED, STOPPED,QUIT
 };
 
 class Lecture
