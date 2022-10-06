@@ -9,8 +9,11 @@
 //labo2.cpp est inspiré du fichier du nom de main.cpp trouvé sur Moodle à la remise du projet précédent, lui même tiré du code trouvé à l'adresse: https://docs.microsoft.com/fr-fr/windows/win32/directshow/how-to-play-a-file
 //Le fichier main.cpp avait été modifié lors du premier laboratoire de ce cours et a été réutilisé dans le cadre de ce second laboratoire. Celui-ci a été modifié afin que le code puisse être 
 //exécuté dans un module python avec en entrée le path de la vidéo à jouer.
-#include "fonctions.h"
+
+#include "Lecture.h"
+
 Lecture Lec;
+
 static PyObject* start(PyObject* self, PyObject* args)
 {
     const char* buffer;
@@ -31,9 +34,6 @@ static PyObject* start(PyObject* self, PyObject* args)
         if (SUCCEEDED(Lec.hr))
         {
             Lec.setEndTime();
-            //cas video marche et est en cours de lecture
-           // ToucheEntrée(Lec);//passer en entrée hr 
-            //cout << "Methode bien fermee!" << endl;
             Lec.Message = "Methode bien fermee!";
             const char* buf = Lec.Message.c_str();
             valeur = PyBytes_FromString(buf);
@@ -59,35 +59,63 @@ static PyObject* start(PyObject* self, PyObject* args)
 
 static PyObject* play(PyObject* self, PyObject* args)
 {
+    PyObject* valeur;
     Lec.play();
-    return NULL;
+    Lec.Message = "Methode bien fermee!";
+    const char* buf = Lec.Message.c_str();
+    valeur = PyBytes_FromString(buf);
+    return valeur;
 }
 
 static PyObject* pause(PyObject* self, PyObject* args)
 {
+    PyObject* valeur;
     Lec.pause();
-    return NULL;
+    Lec.Message = "Methode bien fermee!";
+    const char* buf = Lec.Message.c_str();
+    valeur = PyBytes_FromString(buf);
+    return valeur;
 }
 
 static PyObject* fastforward(PyObject* self, PyObject* args)
 {
+    PyObject* valeur;
     Lec.fastforward();
-    return NULL;
+    Lec.Message = "Methode bien fermee!";
+    const char* buf = Lec.Message.c_str();
+    valeur = PyBytes_FromString(buf);
+    return valeur;
 }
 
 static PyObject* rewind(PyObject* self, PyObject* args)
 {
+    PyObject* valeur;
     Lec.rewind();
-    return NULL;
+    Lec.Message = "Methode bien fermee!";
+    const char* buf = Lec.Message.c_str();
+    valeur = PyBytes_FromString(buf);
+    return valeur;
+}
+
+static PyObject* quit(PyObject* self, PyObject* args)
+{
+    PyObject* valeur;
+    Lec.~Lecture();
+    Lec.Message = "Methode bien fermee!";
+    const char* buf = Lec.Message.c_str();
+    valeur = PyBytes_FromString(buf);
+    return valeur;
 }
 
 static PyMethodDef methods[] = {
 
+    
     {"start",start,METH_VARARGS,"start"},
     {"play",play,METH_NOARGS,"play"},
     {"pause",pause,METH_NOARGS,"pause"},
     {"fastforward",fastforward,METH_NOARGS,"fastforward"},
     {"rewind",rewind,METH_NOARGS,"rewind"},
+    {"quit",quit,METH_NOARGS,"quit"},
     { NULL, NULL, 0, NULL }
 };
 

@@ -1,7 +1,6 @@
 import sys
 import os                               # importing the os module  
 import shutil                           # importing the shutil module 
-#import tkinter as tk
 from tkinter import *
 from tkinter import filedialog as fd
 from tkinter import messagebox as mb    # importing the messagebox module from tkinter  
@@ -9,14 +8,9 @@ from tkinter import ttk
 from tkinter import Tk
 from tkinter.constants import DISABLED, NORMAL
 from tkinter.ttk import Button, Label
-#sys.path.append("C:/Users/PC/Desktop/Labo2/ArchitectureLogicielsLab2/x64/Release")#Changer le path vers le path de votre labo2.py
-#sys.path.append("C:/Users/sharvey27/Desktop/Lab2/ArchitectureLogicielsLab2/x64/Release")
-sys.path.append("C:/Users/Utilisateur/Projets Universite/Labo3/ArchitectureLogicielsLab3/x64/Release")
+sys.path.append("C:/Users/PC/Desktop/Labo2/ArchitectureLogicielsLab3/x64/Release")#Changer le path vers le path de votre labo2.py
+#sys.path.append("C:/Users/Utilisateur/Projets Universite/Labo3/ArchitectureLogicielsLab3/x64/Release")
 import labo2
-#print('path:')
-#path = input();
-#labo2.start(path)
-
 import tkinter as tk
  
 def switchButtonState():
@@ -59,6 +53,10 @@ def fastforward():
 def rewind():
     labo2.rewind()
 
+def quit():
+    labo2.quit()
+    app.destroy()
+
 app = tk.Tk()
 app.title('Labo3')
 button1 = tk.Button(app, text="Ouvrir un fichier",state=tk.NORMAL,command = switchButtonState)
@@ -71,9 +69,8 @@ button4 = tk.Button(app, text="Avance rapide (1,25x)",state=tk.DISABLED,command 
 button4.grid(row=0,column=4)
 button5 = tk.Button(app, text="Retour au debut",state=tk.DISABLED,command = rewind)
 button5.grid(row=0,column=5)
-button6 = tk.Button(app, text="Quitter",state=tk.NORMAL,command = app.destroy)
+button6 = tk.Button(app, text="Quitter",state=tk.NORMAL,command = quit)
 button6.grid(row=0,column=6)
  
 app.mainloop()
 
-#C:\\Examples.avi
