@@ -22,14 +22,13 @@ public:
 	string Message;
 	HRESULT hr;
 	Lecture();
-	PyObject* start(PyObject*, PyObject*);
+	void start();
 	void play();
 	void pause();
 	void fastforward();
 	void rewind();
 	void quit();
 	void  setEndTime();
-	REFERENCE_TIME getEndTime();
 	~Lecture();
 
 private:

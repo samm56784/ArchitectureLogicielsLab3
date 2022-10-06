@@ -1,9 +1,17 @@
 ///////
 // Auteurs: Samuel Harvey et Simon Dumas
-// Date: 5 octobre 2022
+// Date: 27 octobre 2022
 // 
 // Description: Module python servant à exécuter un programme écrit en c++ servant à effectuer la lecture d'un fichier vidéo. Le programme c++ inclut aussi les fonctionnalités de play/pause (P), avance rapide (A), retour au début (R) et quitter pour fermer l'application (Q).
 // Le module python prend en entrée le path d'une vidéo et la lit avec les fonctionnalités de contrôle présentes dans le programme initial écrit en c++.
+// 
+// EDIT LABO3: Cette version découle de la version obtenue lors du laboratoire 2 à laquelle nous avons remplacé le contrôle de la vidéo (initialement en entrée clavier dans l'invite de commande) par une interface graphique avec
+// des boutons servant à effectuer les mêmes tâches que précédemment, soit les fonctionnalités de play/pause (P), avance rapide (A), retour au début (R) et quitter pour fermer l'application (Q). De plus,
+// une fonctionnalité d'ouverture de fichier a été mise en place afin de choisir le fichier vidéo à jouer à l'aide d'un explorateur de fichier.
+// 
+// ****À noter que nous avons réutilisé notre fichier labo2.cpp que nous avions créer dans le cadre du laboratoire 2 et nous y avons effectué les modifications nécessaires afin qu'il sois fonctionnel pour le laboratoire 3.
+// C'est pour cela que tous les fichiers se nomme labo2.XX même si ce programme correspond bel et bien à notre travail du laboratoire 3.
+// 
 ////////
 
 //labo2.cpp est inspiré du fichier du nom de main.cpp trouvé sur Moodle à la remise du projet précédent, lui même tiré du code trouvé à l'adresse: https://docs.microsoft.com/fr-fr/windows/win32/directshow/how-to-play-a-file
@@ -24,7 +32,7 @@ static PyObject* start(PyObject* self, PyObject* args)
     LPCWSTR path = autre.c_str();;
     
     PyObject* valeur;
-    valeur = Lec.start(self,args);
+    Lec.start();
     Lec.hr = Lec.pGraph->RenderFile(path, NULL);
 
     if (SUCCEEDED(Lec.hr))

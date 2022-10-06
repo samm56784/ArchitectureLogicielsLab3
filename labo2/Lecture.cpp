@@ -11,21 +11,13 @@ Lecture::Lecture()
 }
 
 
-PyObject* Lecture::start(PyObject* self, PyObject* args)
+void Lecture::start()
 {
-    const char* buffer;
-    PyObject* val;
-    PyArg_ParseTuple(args, "s", &buffer);
-    string buffpath = buffer;
-    wstring temp(buffpath.begin(), buffpath.end());
-    wstring autre = temp;
-    LPCWSTR path = autre.c_str();
     hr = CoInitialize(NULL);
 
     if (FAILED(hr))
     {
         printf("ERROR - Could not initialize COM library");
-        return NULL;
     }
 
     // Create the filter graph manager and query for interfaces.
@@ -34,18 +26,11 @@ PyObject* Lecture::start(PyObject* self, PyObject* args)
     if (FAILED(hr))
     {
         printf("ERROR - Could not create the Filter Graph Manager.");
-        Message = "Probleme de creation de l'instance direct show";
-        const char* buf3 = Message.c_str();
-        val = PyBytes_FromString(buf3);
-        return val;
     }
 
     hr = pGraph->QueryInterface(IID_IMediaControl, (void**)&pControl);
     hr = pGraph->QueryInterface(IID_IMediaEvent, (void**)&pEvent);
     hr = pGraph->QueryInterface(IID_IMediaSeeking, (void**)&pSeeking);
-
-    // Build the graph, path étant le path complet de la vidéo que l'on a reçue en entrée du module start()-> ex: labo2.start("C:\\a\\Example.avi")
-    
 
 }
 
@@ -89,11 +74,6 @@ void Lecture::quit()
 void Lecture::setEndTime()
 {
     hr = pSeeking->GetPositions(NULL, &rtEnd);
-}
-
-REFERENCE_TIME Lecture::getEndTime()
-{
-    return rtEnd;
 }
 
 

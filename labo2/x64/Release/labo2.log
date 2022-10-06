@@ -3,7 +3,6 @@
      Création de la bibliothèque C:\Users\PC\Desktop\Labo2\ArchitectureLogicielsLab3\x64\Release\labo2.lib et de l'objet C:\Users\PC\Desktop\Labo2\ArchitectureLogicielsLab3\x64\Release\labo2.exp
   Génération de code en cours
   Previous IPDB not found, fall back to full compilation.
-C:\Users\PC\Desktop\Labo2\ArchitectureLogicielsLab3\labo2\Lecture.cpp(50): warning C4715: 'Lecture::start' : les chemins de contrôle ne retournent pas tous une valeur
   All 164 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Fin de la génération du code
   labo2.vcxproj -> C:\Users\PC\Desktop\Labo2\ArchitectureLogicielsLab3\x64\Release\labo2.pyd
