@@ -50,14 +50,23 @@ void Lecture::pause()
 
 void Lecture::fastforward()
 {
-    hr = pSeeking->SetRate(1.25);
-    cout << "A - Avance rapide (1,25x)\n";
+    double rate = 0;
+    hr = pSeeking->GetRate(&rate);
+    if (rate != 1.25)
+    {
+        hr = pSeeking->SetRate(1.25);
+        cout << "A - Avance rapide (1,25x)\n";
+    }
+    else
+    {
+        hr = pSeeking->SetRate(1.0);
+        cout << "A - Vitesse normale (1x)\n";
+    }
     État = PLAYING;
 }
 
 void Lecture::rewind()
 {
-
     hr = pSeeking->SetRate(1.0);
     hr = pSeeking->SetPositions(&rtNow, AM_SEEKING_AbsolutePositioning, &rtEnd, AM_SEEKING_AbsolutePositioning);
     hr = pControl->Run();
