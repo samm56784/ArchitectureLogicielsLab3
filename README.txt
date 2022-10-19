@@ -30,4 +30,4 @@ INSTRUCTIONS À SUIVRE
 
 14. Vous serez alors invité à aller chercher dans vos fichiers votre vidéo que vous avez sauvegardé auparavant puis la sélectionner
 
-15. Votre vidéo commencera et vous pourrez contrôler votre vidéo à partir des boutons de l'interface graphique (Play,Pause,Avance rapide(1,25x),Retour au debut et Quit)
+15. Votre vidéo commencera et vous pourrez contrôler votre vidéo à partir des boutons de l'interface graphique (Play,Pause,Avance rapide(1,25x)/Vitesse normale (1x),Retour au debut et Quit)
