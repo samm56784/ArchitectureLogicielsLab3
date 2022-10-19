@@ -8,7 +8,8 @@ from tkinter import ttk
 from tkinter import Tk
 from tkinter.constants import DISABLED, NORMAL
 from tkinter.ttk import Button, Label
-sys.path.append("C:/Users/PC/Desktop/Labo2/ArchitectureLogicielsLab3/x64/Release")#Changer le path vers le path de votre labo2.py
+#sys.path.append("C:/Users/PC/Desktop/Labo2/ArchitectureLogicielsLab3/x64/Release")#Changer le path vers le path de votre labo2.py
+sys.path.append("C:/Users/samue/Desktop/Labo2/ArchitectureLogicielsLab3/x64/Release")#Changer le path vers le path de votre labo2.py
 #sys.path.append("C:/Users/Utilisateur/Projets Universite/Labo3/ArchitectureLogicielsLab3/x64/Release")
 import labo2
 import tkinter as tk
@@ -65,7 +66,7 @@ button2 = tk.Button(app, text="Play",state=tk.DISABLED,command = play)
 button2.grid(row=0,column=2)
 button3 = tk.Button(app, text="Pause",state=tk.DISABLED,command = pause)
 button3.grid(row=0,column=3)
-button4 = tk.Button(app, text="Avance rapide (1,25x)",state=tk.DISABLED,command = fastforward)
+button4 = tk.Button(app, text="Avance rapide (1,25x)/ Vitesse normale (1x)",state=tk.DISABLED,command = fastforward)
 button4.grid(row=0,column=4)
 button5 = tk.Button(app, text="Retour au debut",state=tk.DISABLED,command = rewind)
 button5.grid(row=0,column=5)
